@@ -29,9 +29,11 @@ public class MyPropRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        System.out.println("현재 모드 = " + myEnvironment.getMode());
-        System.out.println("myprop.username = " + username);
-        System.out.println("myprop.port = " + port);
+        logger.info("Logger 구현 클래스 = {}", logger.getClass().getName());
+        logger.info("현재 모드 = {}", myEnvironment.getMode());
+
+        logger.debug("myprop.username = {}", username);
+        logger.debug("myprop.port = {}", port);
 
         logger.info("MyPropProperties.getUsername() = {}", properties.getUsername());
         logger.info("MyPropProperties.getPort() = {}", properties.getPort());
