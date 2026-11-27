@@ -1,5 +1,6 @@
 package com.inspirecamp7.myspringboot4lab.runner;
 
+import com.inspirecamp7.myspringboot4lab.config.MyEnvironment;
 import com.inspirecamp7.myspringboot4lab.properties.MyPropProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,8 +24,12 @@ public class MyPropRunner implements ApplicationRunner {
     @Autowired
     private MyPropProperties properties;
 
+    @Autowired
+    private MyEnvironment myEnvironment;
+
     @Override
     public void run(ApplicationArguments args) throws Exception {
+        System.out.println("현재 모드 = " + myEnvironment.getMode());
         System.out.println("myprop.username = " + username);
         System.out.println("myprop.port = " + port);
 
